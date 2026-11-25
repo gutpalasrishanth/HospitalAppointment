@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CityCare Hospital - Appointment Booking</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f2f7fb; color: #1f2d3d; }
+    header { background: #0b6fa4; color: #fff; padding: 28px 20px; text-align: center; }
+    header h1 { font-size: 2rem; }
+    header p { margin-top: 6px; opacity: 0.9; }
+    main { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+    .search { display: flex; gap: 10px; margin-bottom: 20px; }
+    .search input { flex: 1; padding: 12px; border: 1px solid #b8c7d6; border-radius: 6px; font-size: 1rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    th, td { padding: 14px 16px; text-align: left; }
+    th { background: #0b6fa4; color: #fff; }
+    tr:nth-child(even) { background: #eef5fa; }
+    .note { margin-top: 18px; font-size: .9rem; color: #566; }
+    footer { text-align: center; padding: 20px; color: #667; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CityCare Hospital</h1>
+    <p>Online Hospital Appointment Booking System</p>
+  </header>
+
+  <main>
+    <h2 style="margin-bottom:12px;">Our Doctors</h2>
+
+    <div class="search">
+      <input type="text" id="searchBox" placeholder="Search by doctor name or specialization...">
+    </div>
+
+    <table id="doctorTable">
+      <thead>
+        <tr>
+          <th>Doctor Name</th>
+          <th>Specialization</th>
+          <th>Available Timings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Dr. Anita Sharma</td><td>Cardiologist</td><td>Mon - Fri, 10:00 AM - 1:00 PM</td></tr>
+        <tr><td>Dr. Rajesh Kumar</td><td>Neurologist</td><td>Mon, Wed, Fri, 2:00 PM - 5:00 PM</td></tr>
+        <tr><td>Dr. Priya Reddy</td><td>Pediatrician</td><td>Mon - Sat, 9:00 AM - 12:00 PM</td></tr>
+        <tr><td>Dr. Suresh Patel</td><td>Orthopedic Surgeon</td><td>Tue, Thu, Sat, 11:00 AM - 3:00 PM</td></tr>
+        <tr><td>Dr. Meena Iyer</td><td>Dermatologist</td><td>Mon - Fri, 3:00 PM - 6:00 PM</td></tr>
+        <tr><td>Dr. Arjun Verma</td><td>General Physician</td><td>Mon - Sat, 8:00 AM - 11:00 AM</td></tr>
+      </tbody>
+    </table>
+
+    <p class="note">To book or cancel an appointment, please register and log in as a patient.</p>
+  </main>
+
+  <footer>&copy; 2026 CityCare Hospital. All rights reserved.</footer>
+
+  <script>
+    document.getElementById("searchBox").addEventListener("input", function () {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll("#doctorTable tbody tr").forEach(function (row) {
+        row.style.display = row.textContent.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
